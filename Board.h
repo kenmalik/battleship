@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <iostream>
-#include "ship.h"
+#include "Ship.h"
 
 class Board {
 public:
