@@ -34,27 +34,27 @@ int main() {
 }
 
 bool promptUser(bool player1Turn, User* player1, User* player2) {
-    std::string player;
+    std::string playerLabel;
     User* currentPlayer;
     User* enemyPlayer;
 
     if (player1Turn) {
-        player = "User 1";
+        playerLabel = "User 1";
         currentPlayer = player1;
         enemyPlayer = player2;
     } else {
-        player = "User 2";
+        playerLabel = "User 2";
         currentPlayer = player2;
         enemyPlayer = player1;
     }
 
     int x, y;
-    std::cout << "\n" << player << "\nPick a coordinate (format: 3 4 = (3, 4)): ";
+    std::cout << "\n" << playerLabel << "\nPick a coordinate (format: 3 4 = (3, 4)): ";
     std::cin >> x >> y;
 
     char hitChar = enemyPlayer->checkHit(x-1, y-1);
     currentPlayer->getEmptyBoard().setCoordinate(x - 1, y - 1, hitChar);
-    std::cout << "\nUser 2's board\n";
+    std::cout << "\nYour hits\n";
     currentPlayer->getEmptyBoard().print();
 
     if (enemyPlayer->isLoser()) {
