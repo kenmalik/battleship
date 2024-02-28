@@ -6,6 +6,7 @@
 class User {
 private:
     Board board;
+    Ship ships[5];
 
 public:
     User();

@@ -13,6 +13,7 @@ char User::launchMissile(int x, int y) {
         return '-';
     }
 }
+
 bool User::isLoser() {
     return board.isGameOver();
 }

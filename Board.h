@@ -13,9 +13,9 @@ public:
     void setCoordinate(int x, int y, char icon); //sets coordinate
     void setShip(int, int, Ship); //sets ships
     bool isGameOver();
+
 private:
     std::vector<std::vector<char>> board;
 };
-
 
 #endif //BATTLESHIP_BOARD_H

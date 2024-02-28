@@ -8,8 +8,6 @@ int main() {
     bool endGame = false;
     std::string winner;
 
-    blankUser.setShip(1, 1, Ship(5,'o', false));
-
     std::cout << "User 1's board\n";
     blankUser.print();
     std::cout << "\nUser 2's board\n";
