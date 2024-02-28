@@ -5,11 +5,11 @@ User::User() {
 
 char User::checkHit(int x, int y) {
     if (board.getCoordinate(x, y) == 'o') {
-        board.setCoordinate(x, y, 'x');
-        return 'x';
+        board.setCoordinate(x, y, 'X');
+        return 'X';
     } else {
-        board.setCoordinate(x,y, '-');
-        return '-';
+        board.setCoordinate(x,y, '#');
+        return '#';
     }
 }
 
