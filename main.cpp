@@ -8,7 +8,6 @@ int main() {
     srand(time(NULL));
     User user, user2;
     bool endGame = false;
-    std::string winner;
 
     setRandomShips(user);
     setRandomShips(user2);
@@ -22,6 +21,7 @@ int main() {
         player1Turn = !player1Turn;
     } 
 
+    std::string winner;
     if (player1Turn) {
         winner = "Player 2 won!";
     } else {
@@ -48,13 +48,21 @@ bool promptUser(bool player1Turn, User* player1, User* player2) {
         enemyPlayer = player1;
     }
 
-    int x, y;
     std::cout << "\n================================\n\n" 
-        << playerLabel << "'s turn\n" 
-        << "Pick a coordinate (format: 3 4 = (3, 4)): ";
-    std::cin >> x >> y;
+        << playerLabel << "'s turn\n";
 
-    char hitChar = enemyPlayer->checkHit(x-1, y-1);
+    int x, y;
+    bool validInput = false;
+    while (!validInput) {
+        std::cout << "Pick a coordinate (format: 3 4 = (3, 4)): ";
+        std::cin >> x >> y;
+        validInput = (x <= 10 && x >= 1 && y <= 10 && y >= 1);
+        if (!validInput) {
+            std::cout << "Invalid input\n";
+        }
+    }
+
+    char hitChar = enemyPlayer->checkHit(x - 1, y - 1);
     currentPlayer->getEmptyBoard().setCoordinate(x - 1, y - 1, hitChar);
     std::cout << "\nYour hits\n" << currentPlayer ->getEmptyBoard();
 
