@@ -72,7 +72,7 @@ void setRandomShips(User& player) {
         int x(rand() % 10); //randomizing x and y coordinates
         int y(rand() % 10);
 
-        if (x + shipSize > 10 | y + shipSize > 10) {
+        if (x + shipSize > 10 || y + shipSize > 10) {
             continue;
         }
 
