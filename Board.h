@@ -8,7 +8,8 @@
 class Board {
 public:
     Board();
-    void print();
+    std::vector<std::vector<char>>& getBoard();
+    friend std::ostream& operator<<(std::ostream&, Board&);
     char getCoordinate(int x, int y); // returns whats at that coordinate (ship or nothing)
     void setCoordinate(int x, int y, char icon); //sets coordinate
     void setShip(int, int, Ship); //sets ships

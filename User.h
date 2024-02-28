@@ -12,7 +12,6 @@ private:
 public:
     User();
     char checkHit(int x , int y);
-    bool isLoser();
     Board& getBoard();
     Board& getEmptyBoard();
 };

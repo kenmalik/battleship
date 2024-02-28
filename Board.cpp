@@ -1,5 +1,6 @@
 #include "Board.h"
 #include <iomanip>
+#include <vector>
 
 Board::Board() {
     constexpr int kBoardSize = 10;
@@ -8,20 +9,25 @@ Board::Board() {
     }
 }
 
-void Board::print() {
+std::vector<std::vector<char>>& Board::getBoard() {
+    return board;
+}
+
+std::ostream& operator<<(std::ostream& os, Board& board)  {
     std::cout << "   ";
-    for (int i = 1; i <= board.size(); ++i) {
+    for (int i = 1; i <= board.getBoard().size(); ++i) {
         std::cout << std::setw(2) << i << " ";
     }
     std::cout << std::endl;
 
-    for (int i = 0; i < board.size(); ++i) {
+    for (int i = 0; i < board.getBoard().size(); ++i) {
         std::cout << std::setw(2) << i + 1 << " ";
-        for (char space : board.at(i)) {
+        for (char space : board.getBoard().at(i)) {
             std::cout << std::setw(2) << space << " ";
         }
         std::cout << std::endl;
     }
+    return os;
 }
 
 char Board::getCoordinate(int x, int y){
