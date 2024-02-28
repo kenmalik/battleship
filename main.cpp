@@ -56,8 +56,9 @@ bool promptAction(bool player1Turn, User* player1, User* player2) {
     while (!validInput) {
         std::cout << "Pick a coordinate (format: 3 4 = (3, 4)): ";
         std::cin >> x >> y;
-        bool inRange = (x <= 10 && x >= 1 && y <= 10 && y >= 1);
-        if (!inRange || currentPlayer->getEmptyBoard().getCoordinate(x - 1, y - 1) != '.') {
+        validInput = (x <= 10 && x >= 1 && y <= 10 && y >= 1)
+            && (currentPlayer->getEmptyBoard().getCoordinate(x - 1, y - 1) == '.');
+        if (!validInput) {
             std::cout << "Invalid selection\n";
         }
     }
