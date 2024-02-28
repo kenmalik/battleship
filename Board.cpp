@@ -27,11 +27,11 @@ void Board::setCoordinate(int x, int y, char icon) {
 void Board::setShip(int x, int y, Ship ship) {
     if (ship.getIsHorizontal()) {
         for (int i = 0; i < ship.getLength(); i++) {
-            board.at(y).at(x + i) = '2';
+            board.at(y).at(x + i) = 'o';
         }
     } else {
         for (int i = 0; i < ship.getLength(); i++) {
-            board.at(y + i).at(x) = '1';
+            board.at(y + i).at(x) = 'o';
         }
     }
 }
