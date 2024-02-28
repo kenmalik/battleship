@@ -6,11 +6,12 @@
 class User {
 private:
     Board board;
+    Board emptyBoard;
     Ship ships[5];
 
 public:
     User();
-    char launchMissile(int x , int y);
+    char checkHit(int x , int y);
     bool isLoser();
 
 };

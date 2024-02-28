@@ -3,7 +3,7 @@
 User::User() {
 }
 
-char User::launchMissile(int x, int y) {
+char User::checkHit(int x, int y) {
     if (board.getCoordinate(x, y) == 'o') {
         board.setCoordinate(x, y, 'x');
         return 'x';
