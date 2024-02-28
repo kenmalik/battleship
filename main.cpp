@@ -2,13 +2,13 @@
 #include "User.h"
 
 int main() {
+    std::srand(std::time(0));
     Board blankUser, blankUser2;
     User user, user2;
     bool endGame = false;
     std::string winner;
 
     blankUser.setShip(1, 1, Ship(5,'o', false));
-    blankUser.print();
 
     std::cout << "User 1's board\n";
     blankUser.print();
@@ -17,7 +17,7 @@ int main() {
 
     do {
         int x, y;
-        std::cout << "\nUser 1\nPick a coordinate (format: 34 = (3, 4)): ";
+        std::cout << "\nUser 1\nPick a coordinate (format: 3 4 = (3, 4)): ";
         std::cin >> x >> y;
 
         char hitIcon = user.launchMissile(x, y);

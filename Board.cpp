@@ -36,3 +36,14 @@ void Board::setShip(int x, int y, Ship ship) {
     }
 }
 
+bool Board::isGameOver() {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            if (board.at(i).at(j) == 'o') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
