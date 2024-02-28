@@ -1,4 +1,5 @@
 #include "Board.h"
+#include <iomanip>
 
 Board::Board() {
     constexpr int kBoardSize = 10;
@@ -8,16 +9,16 @@ Board::Board() {
 }
 
 void Board::print() {
-    std::cout << "  ";
+    std::cout << "   ";
     for (int i = 1; i <= board.size(); ++i) {
-        std::cout << i << " ";
+        std::cout << std::setw(2) << i << " ";
     }
     std::cout << std::endl;
 
     for (int i = 0; i < board.size(); ++i) {
-        std::cout << i + 1 << " ";
+        std::cout << std::setw(2) << i + 1 << " ";
         for (char space : board.at(i)) {
-            std::cout << space << " ";
+            std::cout << std::setw(2) << space << " ";
         }
         std::cout << std::endl;
     }
