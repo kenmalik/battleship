@@ -10,4 +10,6 @@ add_executable(battleship main.cpp
         Board.h
         User.cpp
         User.h
+        Game.cpp
+        Game.h
 )
