@@ -49,7 +49,9 @@ bool promptAction(bool player1Turn, User* player1, User* player2) {
     }
 
     std::cout << "\n================================\n\n" 
-        << playerLabel << "'s turn\n";
+        << playerLabel << "'s turn\n"
+        << "\nYour hits\n" << currentPlayer->getEmptyBoard()
+        << "\nYour board\n" << currentPlayer->getBoard() << std::endl;
 
     int x, y;
     bool validInput = false;
@@ -63,9 +65,15 @@ bool promptAction(bool player1Turn, User* player1, User* player2) {
         }
     }
 
+    std::string hitMessage;
     char hitChar = enemyPlayer->checkHit(x - 1, y - 1);
+    if (hitChar == 'X') {
+        hitMessage = "Hit!";
+    } else {
+        hitMessage = "Miss";
+    }
     currentPlayer->getEmptyBoard().setCoordinate(x - 1, y - 1, hitChar);
-    std::cout << "\nYour hits\n" << currentPlayer ->getEmptyBoard();
+    std::cout << "\n" << hitMessage << "\n" << currentPlayer ->getEmptyBoard();
 
     if (enemyPlayer->getBoard().isGameOver()) {
         return true;
