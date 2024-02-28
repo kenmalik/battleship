@@ -57,7 +57,7 @@ bool promptUser(bool player1Turn, User* player1, User* player2) {
     std::cout << "\nYour hits\n";
     currentPlayer->getEmptyBoard().print();
 
-    if (enemyPlayer->isLoser()) {
+    if (enemyPlayer->getBoard().isGameOver()) {
         return true;
     }
     return false;
