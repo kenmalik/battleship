@@ -8,9 +8,9 @@ int main() {
     bool endGame = false;
     std::string winner;
 
-    std::cout << "User 1's board\n";
+    std::cout << "User 1's board\n\n";
     blankUser.print();
-    std::cout << "\nUser 2's board\n";
+    std::cout << "\nUser 2's board\n\n";
     blankUser2.print();
 
     do {
@@ -20,7 +20,7 @@ int main() {
 
         char hitIcon = user.launchMissile(x, y);
         blankUser2.setCoordinate(x, y, hitIcon);
-        std::cout << "User 2's board\n";
+        std::cout << "\nUser 2's board\n\n";
         blankUser2.print();
 
         if (user2.isLoser()) {

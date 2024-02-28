@@ -8,8 +8,15 @@ Board::Board() {
 }
 
 void Board::print() {
-    for (std::vector<char>& row : board) {
-        for (char space : row) {
+    std::cout << "  ";
+    for (int i = 0; i < board.size(); ++i) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    for (int i = 0; i < board.size(); ++i) {
+        std::cout << i << " ";
+        for (char space : board.at(i)) {
             std::cout << space << " ";
         }
         std::cout << std::endl;
@@ -17,7 +24,7 @@ void Board::print() {
 }
 
 char Board::getCoordinate(int x, int y){
-    return board.at(x).at(y);
+    return board.at(y).at(x);
 }
 
 void Board::setCoordinate(int x, int y, char icon) {
