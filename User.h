@@ -12,10 +12,6 @@ public:
     User();
     char launchMissile(int x , int y);
     bool isLoser();
-    void placeShips();
-    void placeHorizontally(Ship ship);
-    void placeVertically(Ship ship);
-    void print();
 
 };
 
