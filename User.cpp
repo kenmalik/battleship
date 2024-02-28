@@ -1,7 +1,6 @@
 #include "User.h"
 
-User::User(){
-
+User::User() {
 }
 
 char User::launchMissile(int x, int y) {
