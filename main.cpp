@@ -2,7 +2,7 @@
 #include "User.h"
 
 int main() {
-    std::srand(std::time(0));
+    std::srand(std::time(NULL));
     Board blankUser, blankUser2;
     User user, user2;
     bool endGame = false;
