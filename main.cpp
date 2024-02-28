@@ -2,7 +2,7 @@
 #include "User.h"
 
 int main() {
-    std::srand(std::time(NULL));
+    std::srand(time(NULL));
     Board blankUser, blankUser2;
     User user, user2;
     bool endGame = false;
@@ -18,15 +18,9 @@ int main() {
         std::cout << "\nUser 1\nPick a coordinate (format: 3 4 = (3, 4)): ";
         std::cin >> x >> y;
 
-<<<<<<< HEAD
-        char hitIcon = user.launchMissile(x, y);
-        blankUser2.setCoordinate(x, y, hitIcon);
-        std::cout << "\nUser 2's board\n\n";
-=======
         char hitIcon = user2.launchMissile(x-1, y-1);
         blankUser2.setCoordinate(x-1, y-1, hitIcon);
         std::cout << "User 2's board\n";
->>>>>>> 48691c83c13bb4bdb950aa2a45503b59c04a71c8
         blankUser2.print();
 
         if (user2.isLoser()) {
