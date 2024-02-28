@@ -1,7 +1,7 @@
 #include <iostream>
 #include "User.h"
 
-bool promptUser(bool, User*, User*);
+bool promptAction(bool, User*, User*);
 void setRandomShips(User&);
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
 
     bool player1Turn = true;
     while (!endGame) {
-        endGame = promptUser(player1Turn, &user, &user2);
+        endGame = promptAction(player1Turn, &user, &user2);
         player1Turn = !player1Turn;
     } 
 
@@ -33,7 +33,7 @@ int main() {
     return 0;
 }
 
-bool promptUser(bool player1Turn, User* player1, User* player2) {
+bool promptAction(bool player1Turn, User* player1, User* player2) {
     std::string playerLabel;
     User* currentPlayer;
     User* enemyPlayer;
@@ -57,8 +57,9 @@ bool promptUser(bool player1Turn, User* player1, User* player2) {
         std::cout << "Pick a coordinate (format: 3 4 = (3, 4)): ";
         std::cin >> x >> y;
         validInput = (x <= 10 && x >= 1 && y <= 10 && y >= 1);
+        validInput = (currentPlayer->getEmptyBoard().getCoordinate(x - 1, y - 1) == '.');
         if (!validInput) {
-            std::cout << "Invalid input\n";
+            std::cout << "Invalid selection\n";
         }
     }
 
