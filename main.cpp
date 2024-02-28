@@ -22,11 +22,12 @@ int main() {
     } 
 
     if (player1Turn) {
-        winner = "User 2 won!";
+        winner = "Player 2 won!";
     } else {
-        winner = "User 1 won!";
+        winner = "Player 1 won!";
     }
-    std::cout << std::endl << winner << std::endl;
+    std::cout << "\n================================\n\n" 
+        << winner << std::endl;
 
     return 0;
 }
@@ -37,17 +38,19 @@ bool promptUser(bool player1Turn, User* player1, User* player2) {
     User* enemyPlayer;
 
     if (player1Turn) {
-        playerLabel = "User 1";
+        playerLabel = "Player 1";
         currentPlayer = player1;
         enemyPlayer = player2;
     } else {
-        playerLabel = "User 2";
+        playerLabel = "Player 2";
         currentPlayer = player2;
         enemyPlayer = player1;
     }
 
     int x, y;
-    std::cout << "\n" << playerLabel << "\nPick a coordinate (format: 3 4 = (3, 4)): ";
+    std::cout << "\n================================\n\n" 
+        << playerLabel << "'s turn\n" 
+        << "Pick a coordinate (format: 3 4 = (3, 4)): ";
     std::cin >> x >> y;
 
     char hitChar = enemyPlayer->checkHit(x-1, y-1);
