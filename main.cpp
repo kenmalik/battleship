@@ -13,14 +13,14 @@ int main() {
     std::cout << "\nUser 2's board\n\n";
     blankUser2.print();
 
-    do {
+    while (!endGame) {
         int x, y;
         std::cout << "\nUser 1\nPick a coordinate (format: 3 4 = (3, 4)): ";
         std::cin >> x >> y;
 
         char hitIcon = user2.launchMissile(x-1, y-1);
         blankUser2.setCoordinate(x-1, y-1, hitIcon);
-        std::cout << "User 2's board\n";
+        std::cout << "\nUser 2's board\n";
         blankUser2.print();
 
         if (user2.isLoser()) {
@@ -35,7 +35,7 @@ int main() {
 
             char hitIcon2 = user.launchMissile(x2-1, y2-1);
             blankUser.setCoordinate(x2-1, y2-1,hitIcon2);
-            std::cout << "User 1's board\n";
+            std::cout << "\nUser 1's board\n";
             blankUser.print();
 
             if (user.isLoser()) {
@@ -43,8 +43,8 @@ int main() {
                 winner = "User 2 won!";
             }
         }
-    } while (!endGame);
-    std::cout << winner;
+    } 
+    std::cout << std::endl << winner << std::endl;
 
     return 0;
 }
