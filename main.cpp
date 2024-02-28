@@ -2,16 +2,17 @@
 #include "User.h"
 
 bool promptUser(bool, User*, User*);
+void setRandomShips(User&);
 
 int main() {
-    std::srand(time(NULL));
+    srand(time(NULL));
     User user, user2;
     bool endGame = false;
     std::string winner;
 
-    Ship debugShip(1, 'o', true);
-    user.getBoard().setShip(0, 0, debugShip);
-    user2.getBoard().setShip(0, 2, debugShip);
+    setRandomShips(user);
+    setRandomShips(user2);
+
     std::cout << "User 1's board\n\n" << user.getBoard();
     std::cout << "\nUser 2's board\n\n" << user2.getBoard();
 
@@ -61,4 +62,26 @@ bool promptUser(bool player1Turn, User* player1, User* player2) {
         return true;
     }
     return false;
+}
+
+void setRandomShips(User& player) {
+    int n = 0, maxShips = 5, shipSize = 1;
+
+    while (n < maxShips && shipSize < 6)
+    {
+        int x(rand() % 10); //randomizing x and y coordinates
+        int y(rand() % 10);
+
+        if (x + shipSize > 10 | y + shipSize > 10) {
+            continue;
+        }
+
+        int horOrVert(rand() % 2);
+        if (player.getBoard().getCoordinate(x, y) != 'o') { //if the space doesn't have a ship piece
+            player.getBoard().setShip(x, y, Ship(shipSize, 'o', horOrVert));
+            n++;
+            shipSize++;
+        }
+    }
+
 }
