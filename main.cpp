@@ -2,7 +2,7 @@
 #include "User.h"
 
 int main() {
-    std::srand(std::time(0));
+    std::srand(time(NULL));
     Board blankUser, blankUser2;
     User user, user2;
     bool endGame = false;
@@ -44,7 +44,7 @@ int main() {
             }
         }
     } while (!endGame);
-    std::cout << winner;
+    std::cout << winner << std::endl;
 
     return 0;
 }
