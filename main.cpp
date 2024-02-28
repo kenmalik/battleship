@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "User.h"
 
 bool promptAction(bool, User*, User*);
@@ -12,8 +13,12 @@ int main() {
     setRandomShips(user);
     setRandomShips(user2);
 
-    std::cout << "User 1's board\n\n" << user.getBoard();
-    std::cout << "\nUser 2's board\n\n" << user2.getBoard();
+    std::cout << "Player 1's board\n\n" << user.getBoard();
+    std::cout << "\nPlayer 2's board\n\n" << user2.getBoard();
+
+    std::cout << "\nInput a character to start: ";
+    std::string temp;
+    std::getline(std::cin, temp);
 
     bool player1Turn = true;
     while (!endGame) {
