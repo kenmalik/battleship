@@ -9,13 +9,13 @@ Board::Board() {
 
 void Board::print() {
     std::cout << "  ";
-    for (int i = 0; i < board.size(); ++i) {
+    for (int i = 1; i <= board.size(); ++i) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
 
     for (int i = 0; i < board.size(); ++i) {
-        std::cout << i << " ";
+        std::cout << i + 1 << " ";
         for (char space : board.at(i)) {
             std::cout << space << " ";
         }
@@ -28,7 +28,7 @@ char Board::getCoordinate(int x, int y){
 }
 
 void Board::setCoordinate(int x, int y, char icon) {
-    board.at(x).at(y) = icon;
+    board.at(y).at(x) = icon;
 }
 
 void Board::setShip(int x, int y, Ship ship) {
