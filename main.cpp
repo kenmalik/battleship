@@ -3,26 +3,24 @@
 
 int main() {
     std::srand(time(NULL));
-    Board blankUser, blankUser2;
     User user, user2;
     bool endGame = false;
     std::string winner;
 
     std::cout << "User 1's board\n\n";
-    blankUser.print();
+    user.getBoard().print();
     std::cout << "\nUser 2's board\n\n";
-    blankUser2.print();
-
+    user2.getBoard().print();
 
     while (!endGame) {
         int x, y;
         std::cout << "\nUser 1\nPick a coordinate (format: 3 4 = (3, 4)): ";
         std::cin >> x >> y;
 
-        char hitIcon = user2.checkHit(x-1, y-1);
-        blankUser2.setCoordinate(x-1, y-1, hitIcon);
+        char hitChar = user2.checkHit(x-1, y-1);
+        user.getEmptyBoard().setCoordinate(x - 1, y - 1, hitChar);
         std::cout << "\nUser 2's board\n";
-        blankUser2.print();
+        user.getEmptyBoard().print();
 
         if (user2.isLoser()) {
             endGame = true;
@@ -34,10 +32,10 @@ int main() {
             std::cout << "User 2\nPick a coordinate (format: 3 4 = (3, 4)): ";
             std::cin >> x2 >> y2;
 
-            char hitIcon2 = user.checkHit(x2-1, y2-1);
-            blankUser.setCoordinate(x2-1, y2-1,hitIcon2);
+            char hitChar = user.checkHit(x-1, y-1);
+            user2.getEmptyBoard().setCoordinate(x - 1, y - 1, hitChar);
             std::cout << "\nUser 1's board\n";
-            blankUser.print();
+            user2.getEmptyBoard().print();
 
             if (user.isLoser()) {
                 endGame = true;
@@ -51,5 +49,5 @@ int main() {
 }
 
 void promptUser(bool player1Turn, User& player1, User& player2) {
-
+    
 }

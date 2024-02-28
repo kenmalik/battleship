@@ -16,3 +16,11 @@ char User::checkHit(int x, int y) {
 bool User::isLoser() {
     return board.isGameOver();
 }
+
+Board& User::getBoard() {
+    return board;
+}
+
+Board& User::getEmptyBoard() {
+    return emptyBoard;
+}
