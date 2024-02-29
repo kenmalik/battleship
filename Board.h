@@ -8,9 +8,9 @@
 class Board {
 public:
     Board();
-    std::vector<std::vector<char>>& getBoard();
-    friend std::ostream& operator<<(std::ostream&, Board&);
-    char getCoordinate(int x, int y); // returns whats at that coordinate (ship or nothing)
+    const std::vector<std::vector<char>>& getBoard() const;
+    friend std::ostream& operator<<(std::ostream&, const Board&);
+    char getCoordinate(int x, int y) const; // returns whats at that coordinate (ship or nothing)
     void setCoordinate(int x, int y, char icon); //sets coordinate
     void setShip(int, int, Ship); //sets ships
     bool isGameOver();

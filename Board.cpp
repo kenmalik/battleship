@@ -9,11 +9,11 @@ Board::Board() {
     }
 }
 
-std::vector<std::vector<char>>& Board::getBoard() {
+const std::vector<std::vector<char>>& Board::getBoard() const {
     return board;
 }
 
-std::ostream& operator<<(std::ostream& os, Board& board)  {
+std::ostream& operator<<(std::ostream& os, const Board& board) {
     std::cout << "   ";
     for (int i = 1; i <= board.getBoard().size(); ++i) {
         std::cout << std::setw(2) << i << " ";
@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& os, Board& board)  {
     return os;
 }
 
-char Board::getCoordinate(int x, int y){
+char Board::getCoordinate(int x, int y) const {
     return board.at(y).at(x);
 }
 
