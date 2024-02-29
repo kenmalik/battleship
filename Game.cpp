@@ -85,14 +85,14 @@ void Game::setRandomShips(User& player) {
     {
         int x(rand() % 10); //randomizing x and y coordinates
         int y(rand() % 10);
+        bool horizontal(rand() % 2);
 
-        if (x + shipSize > 10 || y + shipSize > 10) {
+        if ((horizontal && x + shipSize > 10) || (!horizontal && y + shipSize > 10)) {
             continue;
         }
 
-        int horOrVert(rand() % 2);
         if (player.getBoard().getCoordinate(x, y) != 'o') { //if the space doesn't have a ship piece
-            player.getBoard().setShip(x, y, Ship(shipSize, 'o', horOrVert));
+            player.getBoard().setShip(x, y, Ship(shipSize, 'o', horizontal));
             n++;
             shipSize++;
         }
