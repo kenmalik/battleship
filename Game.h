@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include "User.h"
 
 class Game {
@@ -10,3 +13,4 @@ class Game {
         static std::tuple<int, int> getCoordinateInput(User&);
 };
 
+#endif

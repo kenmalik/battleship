@@ -55,7 +55,7 @@ bool Game::promptAction(bool player1Turn, User* player1, User* player2) {
         hitMessage = "Miss";
     }
     currentPlayer->getEmptyBoard().setCoordinate(x - 1, y - 1, hitChar);
-    std::cout << "\n" << hitMessage << "\n" << currentPlayer ->getEmptyBoard();
+    std::cout << "\n" << hitMessage << "\n" << currentPlayer->getEmptyBoard();
 
     if (enemyPlayer->getBoard().isGameOver()) {
         return true;
