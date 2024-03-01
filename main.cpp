@@ -1,6 +1,3 @@
 #include "Game.h"
 
-int main() {
-    Game::play();
-}
-
+int main() { Game::play(); }
