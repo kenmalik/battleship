@@ -105,20 +105,23 @@ std::tuple<int, int> Game::getCoordinateInput(User &currentPlayer) {
  * set on.
  */
 void Game::setRandomShips(User &player) {
-  int n = 0, maxShips = 5, shipSize = 1;
+  constexpr int kMaxShips = 5;
+  constexpr int kMaxShipSize = 6;
+  const size_t kBoardSize = player.getBoard().getBoard().size();
+  int n = 0;
+  int shipSize = 1;
 
-  while (n < maxShips && shipSize < 6) {
-    int x(rand() % 10); // randomizing x and y coordinates
-    int y(rand() % 10);
+  while (n < kMaxShips && shipSize < kMaxShipSize) {
+    int x(rand() % kBoardSize);
+    int y(rand() % kBoardSize);
     bool horizontal(rand() % 2);
 
-    if ((horizontal && x + shipSize > 10) ||
-        (!horizontal && y + shipSize > 10)) {
+    if ((horizontal && x + shipSize > kBoardSize) ||
+        (!horizontal && y + shipSize > kBoardSize)) {
       continue;
     }
 
-    if (player.getBoard().getCoordinate(x, y) !=
-        'o') { // if the space doesn't have a ship piece
+    if (player.getBoard().getCoordinate(x, y) != 'o') {
       player.getBoard().setShip(x, y, Ship(shipSize, 'o', horizontal));
       n++;
       shipSize++;
