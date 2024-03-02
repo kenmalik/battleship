@@ -2,6 +2,9 @@
 #include "User.h"
 #include <tuple>
 
+/**
+ * Starts the game.
+ */
 void Game::play() {
   srand(time(NULL));
   User user, user2;
@@ -25,6 +28,14 @@ void Game::play() {
   Game::announceWinner(player1Turn);
 }
 
+/**
+ * Prompts a user with an action.
+ *
+ * @param player1Turn Whether it is player 1's turn.
+ * @param *player1 User pointer to player 1.
+ * @param *player2 User pointer to player 2.
+ * @return Boolean whether the game is over.
+ */
 bool Game::promptAction(bool player1Turn, User *player1, User *player2) {
   std::string playerLabel;
   User *currentPlayer;
@@ -64,6 +75,13 @@ bool Game::promptAction(bool player1Turn, User *player1, User *player2) {
   return false;
 }
 
+/**
+ * Gets a valid coordinate input (it must exist on the board and cannot have
+ * been previously selected).
+ *
+ * @param &currentPlayer User reference to the player whose turn it is.
+ * @return The inputted coordinates.
+ */
 std::tuple<int, int> Game::getCoordinateInput(User &currentPlayer) {
   int x, y;
   bool validInput = false;
@@ -80,6 +98,12 @@ std::tuple<int, int> Game::getCoordinateInput(User &currentPlayer) {
   return std::tuple<int, int>(x, y);
 }
 
+/**
+ * Randomly places ships on a user's board.
+ *
+ * @param &player User reference to the player whose board the ships will be
+ * set on.
+ */
 void Game::setRandomShips(User &player) {
   int n = 0, maxShips = 5, shipSize = 1;
 
@@ -102,6 +126,9 @@ void Game::setRandomShips(User &player) {
   }
 }
 
+/**
+ * Gets initial input to start game.
+ */
 bool Game::inputToStart() {
   std::cout << "\nInput a character to start (q to quit): ";
   std::string input;
@@ -113,6 +140,11 @@ bool Game::inputToStart() {
   return true;
 }
 
+/**
+ * Announces the winner of the game.
+ *
+ * @param player1Turn Boolean whether the game ended on player 1's turn.
+ */
 void Game::announceWinner(bool player1Turn) {
   std::string winner;
   if (player1Turn) {
