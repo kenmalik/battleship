@@ -6,7 +6,7 @@
  * Starts the game.
  */
 void Game::play() {
-  srand(time(NULL));
+  std::srand(time(0));
   User user, user2;
   bool endGame = false;
 
